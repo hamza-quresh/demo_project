@@ -1,5 +1,10 @@
 pipeline{
-    agent any
+    agent{
+        dockerfile{
+            filename 'Dockerfile'
+            dir '.'
+        }
+    }
 
     stages{
         stage('Checkout'){
@@ -12,7 +17,7 @@ pipeline{
             steps{
                 echo 'Setting up python environment'
                 sh 'python --version'
-                sh 'pip install poetry'
+                sh 'poetry install'
             }
         }
         stage('Install dependencies'){
