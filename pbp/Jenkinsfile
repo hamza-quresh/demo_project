@@ -1,43 +1,40 @@
-pipeline{
+pipeline {
     agent {
-        Dockerfile{
+        dockerfile {
             filename 'Dockerfile'
             dir '.'
         }
     }
 
-    stages{
-        stage('Checkout'){
-            steps{
-                echo 'checking out scm'
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out SCM'
                 checkout scm
             }
         }
-        stage('setup python environment'){
-            steps{
-                echo 'Setting up python environment'
-                sh 'python --version'
+
+        stage('Setup Environment') {
+            steps {
+                echo 'Setting up Python environment'
+                sh 'python3 --version || python --version'
                 sh 'poetry install'
             }
         }
-        stage('Install dependencies'){
-            steps{
-                echo 'Installing dependencies'
-                sh 'poetry install'
-            }
-        }
-        stage('Run tests'){
-            steps{
+
+        stage('Run Tests') {
+            steps {
                 echo 'Running tests'
                 sh 'poetry run pytest'
             }
         }
     }
-    post{
-        success{
+
+    post {
+        success {
             echo 'Pipeline completed successfully'
         }
-        failure{
+        failure {
             echo 'Pipeline failed'
         }
     }
