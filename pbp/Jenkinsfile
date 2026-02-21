@@ -33,11 +33,12 @@ pipeline {
                 sh 'bash pbp/bin/build_wheel.sh'
             }
         }
-        stage('docker build'){
-            steps{
-                echo 'building docker image'
-                sh 'docker build -t demo_project:latest .'
-            }
+    }
+
+    stage('Build docker'){
+        steps{
+            echo 'Building docker image'
+            sh 'docker build -t demo_project:latest .'
         }
     }
 
