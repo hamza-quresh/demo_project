@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: simple_demo_project
+Version: 0.0.0
+Summary: A simple project that reads the sample texts and prints it out
+Author-email: sigma <you@example.com>
+Requires-Python: >=3.9
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: ruff; extra == "dev"

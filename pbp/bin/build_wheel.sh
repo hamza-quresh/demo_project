@@ -9,7 +9,7 @@ rm -rf dist
 
 #build wheel
 echo "starting build wheel.sh and executing poetry build"
-poetry build -f wheel
+poetry build
 
 echo "build wheel.sh completed successfully"
 ls dist/*.whl
