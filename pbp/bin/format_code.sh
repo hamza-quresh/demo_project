@@ -5,5 +5,5 @@ set o
 
 #formating code
 echo "formatting code using black"
-black .
+poetry run black .
 
