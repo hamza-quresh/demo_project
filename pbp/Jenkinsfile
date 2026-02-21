@@ -31,7 +31,7 @@ pipeline {
         stage('Build'){
             steps{
                 //echo 'Build wheel'
-                sh pbp/bin/build_wheel.sh
+                sh 'pbp/bin/build_wheel.sh'
             }
         }
     }
