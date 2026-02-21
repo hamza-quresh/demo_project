@@ -1,0 +1,21 @@
+[project]
+name = "simple_demo_project"
+version = "0.0.0"
+description = "A simple project that reads the sample texts and prints it out"
+authors = [
+    { name = "sigma", email = "you@example.com" }
+]
+requires-python = ">=3.9"
+
+dependencies = [
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "ruff",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
