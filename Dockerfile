@@ -35,5 +35,9 @@ RUN pip install poetry
 COPY pyproject.toml poetry.lock ./
 RUN poetry install --no-root
 
+RUN useradd -m -u 1000 jenkins
+
+ENV HOME=/home/jenkins
+
 COPY . .
 
