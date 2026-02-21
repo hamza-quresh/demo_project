@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir poetry
 WORKDIR /app
 
 COPY pyproject.toml poetry.lock ./
-RUN poetry install
+
 
 RUN useradd -m -u 1000 jenkins
 
@@ -19,4 +19,6 @@ ENV HOME=/home/jenkins
 
 
 COPY . .
+
+RUN poetry install
 
