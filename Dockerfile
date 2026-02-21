@@ -15,7 +15,8 @@ RUN useradd -m -u 1000 jenkins
 
 ENV HOME=/home/jenkins
 
-RUN poetry install --no-root
+RUN poetry lock
+RUN poetry sync
 
 COPY . .
 
