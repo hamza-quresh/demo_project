@@ -6,13 +6,13 @@ pipeline {
         }
     }
 
-    // stages {
-    //     stage('Checkout') {
-    //         steps {
-    //             echo 'Checking out SCM'
-    //             checkout scm
-    //         }
-    //     }
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out SCM'
+                checkout scm
+            }
+        }
 
         stage('Format Code') {
             steps {
