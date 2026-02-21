@@ -28,6 +28,12 @@ pipeline {
                 echo 'this stage is running a test'
             }
         }
+        stage('Build'){
+            steps{
+                //echo 'Build wheel'
+                sh pbp/bin/build_wheel.sh
+            }
+        }
     }
 
     post {
