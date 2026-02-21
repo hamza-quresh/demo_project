@@ -1,1 +1,39 @@
-changing the jenkinsfile to test the pipeline
+pipeline{
+    agent any
+
+    stages{
+        stage('Checkout'){
+            steps{
+                echo 'checking out scm'
+                checkout scm
+            }
+        }
+        stage('setup python environment'){
+            steps{
+                echo 'Setting up python environment'
+                sh 'python --version'
+                sh 'pip install poetry'
+            }
+        }
+        stage('Install dependencies'){
+            steps{
+                echo 'Installing dependencies'
+                sh 'poetry install'
+            }
+        }
+        stage('Run tests'){
+            steps{
+                echo 'Running tests'
+                sh 'poetry run pytest'
+            }
+        }
+    }
+    post{
+        success{
+            echo 'Pipeline completed successfully'
+        }
+        failure{
+            echo 'Pipeline failed'
+        }
+    }
+}
