@@ -1,4 +1,4 @@
-#!bin/bash/sigma
+#!bin/bash/
 #build wheel.sh file that simply executes poetry build
 set -e
 set o
