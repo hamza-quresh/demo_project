@@ -17,8 +17,6 @@ dev = [
     "ruff",
 ]
 
-[project.scripts]
-demo="demo.main:main()"
 
 [build-system]
 requires = ["setuptools>=61.0"]
