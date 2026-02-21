@@ -33,15 +33,7 @@ WORKDIR /app
 RUN pip install poetry
 
 COPY pyproject.toml poetry.lock ./
-
-ENV POETRY_VIRTUALENVS_CREATE=true
-
 RUN poetry install --no-root
 
 COPY . .
-
-
-
-
-
 
