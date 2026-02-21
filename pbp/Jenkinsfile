@@ -14,11 +14,10 @@ pipeline {
             }
         }
 
-        stage('Setup Environment') {
+        stage('Format Code') {
             steps {
-                echo 'Setting up Python environment'
-                sh 'python3 --version || python --version'
-                //sh 'poetry install'
+                echo 'formatting code'
+                sh 'bash pbp/bin/format_code.sh'
             }
         }
 

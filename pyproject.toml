@@ -5,9 +5,10 @@ description = "A simple project that reads the sample texts and prints it out"
 authors = [
     { name = "sigma", email = "you@example.com" }
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 
 dependencies = [
+    "black (>=26.1.0,<27.0.0)"
 ]
 
 [project.optional-dependencies]
@@ -15,6 +16,9 @@ dev = [
     "black",
     "ruff",
 ]
+
+[project.scripts]
+demo="demo.main:main()"
 
 [build-system]
 requires = ["setuptools>=61.0"]
