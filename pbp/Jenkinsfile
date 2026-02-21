@@ -35,10 +35,12 @@ pipeline {
         }
     }
 
-    stage('Build docker'){
-        steps{
-            echo 'Building docker image'
-            sh 'docker build -t demo_project:latest .'
+    stages{
+        stage('Build docker'){
+            steps{
+                echo 'Building docker image'
+                sh 'docker build -t demo_project:latest .'
+            }
         }
     }
 
