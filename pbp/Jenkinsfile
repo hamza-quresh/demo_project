@@ -38,7 +38,7 @@ pipeline {
             agent {label 'docker-host'}
             steps{
                 echo 'Building Docker Image'
-                sh 'docker build -t demo_project:latest .'
+                sh '/usr/bin/docker build -t demo_project:latest .'
             }
         }
     }
