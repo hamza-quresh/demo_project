@@ -1,54 +1,95 @@
+// pipeline {
+//     agent {
+//         dockerfile {
+//             filename 'Dockerfile'
+//             dir '.'
+//         }
+//     }
+
+//     stages {
+//         stage('Checkout') {
+//             steps {
+//                 echo 'Checking out SCM'
+//                 checkout scm
+//             }
+//         }
+
+//         stage('Format Code') {
+//             steps {
+//                 echo 'formatting code'
+//                 sh 'bash pbp/bin/format_code.sh'
+//             }
+//         }
+
+//         stage('Run Tests') {
+//             steps {
+//                 echo 'Running tests'
+//                 echo 'this stage is running a test'
+//             }
+//         }
+//         stage('Build'){
+//             steps{
+//                 //echo 'Build wheel'
+//                 sh 'bash pbp/bin/build_wheel.sh'
+//             }
+//         }
+
+//         stage('Build Docker Image'){
+//             agent {label 'docker-host'}
+//             steps{
+//                 echo 'Building Docker Image'
+//                 sh 'docker build -t demo_project:latest .'
+//             }
+//         }
+//     }
+
+//     post {
+//         success {
+//             echo 'Pipeline completed successfully'
+//         }
+//         failure {
+//             echo 'Pipeline failed'
+//         }
+//     }
+// }
+
 pipeline {
-    agent {
-        dockerfile {
-            filename 'Dockerfile'
-            dir '.'
-        }
+    agent any{
+        stages{
+            stage('Checkout') {
+                steps {
+                    echo 'Checking out SCM'
+                    checkout scm
+                }
+            }
+
+            stage('Format Code') {
+                steps {
+                    echo 'formatting code'
+                    sh 'bash pbp/bin/format_code.sh'
+                }
+            }
+
+            stage('Run Tests') {
+                steps {
+                    echo 'Running tests'
+                    echo 'this stage is running a test'
+                }
+            }
+            stage('Build'){
+                steps{
+                    //echo 'Build wheel'
+                    sh 'bash pbp/bin/build_wheel.sh'
+                }
+            }
+
+        //     stage('Build Docker Image'){
+        //         agent {label 'docker-host'}
+        //         steps{
+        //             echo 'Building Docker Image'
+        //             sh 'docker build -t demo_project:latest .'
+        //         }
+        // }
     }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                echo 'Checking out SCM'
-                checkout scm
-            }
-        }
-
-        stage('Format Code') {
-            steps {
-                echo 'formatting code'
-                sh 'bash pbp/bin/format_code.sh'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                echo 'Running tests'
-                echo 'this stage is running a test'
-            }
-        }
-        stage('Build'){
-            steps{
-                //echo 'Build wheel'
-                sh 'bash pbp/bin/build_wheel.sh'
-            }
-        }
-
-        stage('Build Docker Image'){
-            agent {label 'docker-host'}
-            steps{
-                echo 'Building Docker Image'
-                sh 'docker build -t demo_project:latest .'
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline completed successfully'
-        }
-        failure {
-            echo 'Pipeline failed'
-        }
-    }
+}
 }
