@@ -29,6 +29,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN pip install poetry
 
+COPY pyproject.toml poetry.lock ./
+
+COPY . .
+
 
 
 
