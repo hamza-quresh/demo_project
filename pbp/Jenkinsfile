@@ -35,7 +35,7 @@ pipeline {
         }
 
         stage('Build Docker Image'){
-            agent {label 'docker-host'}
+            agent {label 'docker-host-idk'}
             steps{
                 echo 'Building Docker Image'
                 sh '/usr/bin/docker build -t demo_project:latest .'
