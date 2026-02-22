@@ -53,9 +53,46 @@
 //     }
 // }
 
+// pipeline {
+//     agent any
+//     stages{
+//         stage('Checkout') {
+//             steps {
+//                 echo 'Checking out SCM'
+//                 checkout scm
+//             }
+//         }
+
+//         stage('Format Code') {
+//             steps {
+//                 echo 'formatting code'
+//                 sh 'bash pbp/bin/format_code.sh'
+//             }
+//         }
+
+//         stage('Run Tests') {
+//             steps {
+//                 echo 'Running tests'
+//                 echo 'this stage is running a test'
+//             }
+//         }
+//         // stage('Build'){
+//         //     steps{
+//         //         //echo 'Build wheel'
+//         //         sh 'bash pbp/bin/build_wheel.sh'
+//         //     }
+//         // }
+//     }
+// }
+
 pipeline {
-    agent any
-    stages{
+    agent {
+        dockerfile {
+            filename 'Dockerfile'
+        }
+    }
+
+    stages {
         stage('Checkout') {
             steps {
                 echo 'Checking out SCM'
@@ -76,11 +113,5 @@ pipeline {
                 echo 'this stage is running a test'
             }
         }
-        // stage('Build'){
-        //     steps{
-        //         //echo 'Build wheel'
-        //         sh 'bash pbp/bin/build_wheel.sh'
-        //     }
-        // }
     }
 }
