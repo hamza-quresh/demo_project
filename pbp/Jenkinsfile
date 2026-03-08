@@ -17,7 +17,7 @@ pipeline {
         stage('Format Code') {
             steps {
                 echo 'formatting code'
-                //sh 'bash pbp/bin/format_code.sh'
+                sh 'bash pbp/bin/format_code.sh'
             }
         }
 
@@ -30,7 +30,7 @@ pipeline {
         stage('Build'){
             steps{
                 echo 'Build wheel'
-                //sh 'bash pbp/bin/build_wheel.sh'
+                sh 'bash pbp/bin/build_wheel.sh'
             }
         }
 
