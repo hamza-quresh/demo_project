@@ -33,4 +33,16 @@ def append_to_file(file_path: Path, content: str) -> None:
     with file_path.open("a") as f:
         f.write(content)
 
+if __name__ == "__main__":
+    main()
+
+def add_numbers(a: int, b: int) -> int:
+    return a + b
+
+
+def print_greeting(name: str) -> None:
+    print(f"Hello, {name}!")
+
+    
+
     
