@@ -9,6 +9,23 @@ def main():
             print(file_path[i].read_text())
 
 
+
+def print_demo()-> None:
+    print("This is a simple demo project.")
+
+def add(a: int, b: int)-> int:
+    return a + b
+
+
+def subtract(a: int, b: int)-> int:
+    return a - b
+
+def get_path()-> Path:
+    return Path("sample1.txt")
+
+
+
+
 def test_main()-> None:
     assert True 
     main()
