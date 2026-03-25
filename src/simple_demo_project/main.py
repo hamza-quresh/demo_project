@@ -43,6 +43,17 @@ def add_numbers(a: int, b: int) -> int:
 def print_greeting(name: str) -> None:
     print(f"Hello, {name}!")
 
+
+def calculate_area(radius: float) -> float:
+    import math
+    return math.pi * radius ** 2
+def find_maximum(numbers: list) -> int:
+    if not numbers:
+        raise ValueError("The list is empty.")
+    return max(numbers)
+
     
+
+
 
     
