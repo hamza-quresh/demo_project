@@ -18,6 +18,7 @@ pipeline {
             steps {
                 echo 'formatting code'
                 //sh 'bash pbp/bin/format_code.sh'
+                //sh 'bash pbp/bin/format_code.sh'
             }
         }
 
