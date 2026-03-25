@@ -52,7 +52,20 @@ def find_maximum(numbers: list) -> int:
         raise ValueError("The list is empty.")
     return max(numbers)
 
+def reverse_string(s: str) -> str:
+    return s[::-1]
+
+def is_prime(n: int) -> bool:
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
     
+
+
 
 
 
