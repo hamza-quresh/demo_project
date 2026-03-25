@@ -87,3 +87,9 @@ def is_prime(n: int) -> bool:
 
 
     
+def get_paths()-> list[Path]:
+    return [Path("sample1.txt"), Path("sample2.txt")]
+
+def get_paths_dict()-> dict[str, Path]:
+    return {"file1": Path("sample1.txt"), "file2": Path("sample2.txt")}
+    
