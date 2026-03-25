@@ -24,3 +24,13 @@ def read_file(file_path: Path) -> str:
     else:
         raise FileNotFoundError(f"{file_path} does not exist.")
 
+
+
+def write_to_file(file_path: Path, content: str) -> None:
+    file_path.write_text(content)
+
+def append_to_file(file_path: Path, content: str) -> None:
+    with file_path.open("a") as f:
+        f.write(content)
+
+    
